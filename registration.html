@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="registration.js"></script>
+        <title>Registration Page</title>
+    </head>
+    <body>
+        <form action="" method="post" id=register_form>
+        <table>
+            <caption>Registartion</caption>
+            <tr>
+                <td>
+                    <input type="text" name="adminName" id="adminName" placeholder="Name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name=adminEmail id="adminEmail" placeholder="Email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <input type="password" name="adminPassword" id="adminPassword" placeholder="Password">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                <input type="password" name="adminCoPassword" id="adminCoPassword" placeholder="Confirm Password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="city" id="city">
+                        <option value="Ahmedabad">Ahmedabad</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Vadodra">Vadodra</option>
+                        <option value="Surat">Surat</option>
+                        <option value="Chennai">Chennai</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <select name="state" id="state">
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <input type="checkbox" name="terms" id="terms"> Terms & Conditions
+                </td> 
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Register" onclick="registration()">
+                </td>
+            </tr>
+        </table>
+</form>
+    </body>
+</html>

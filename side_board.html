@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>
+            Side Board
+        </title>
+
+    </head>
+    <body>
+        <div id="user"></div>
+        <a href="dashboard.html" target="main">Dashboard</a><br>
+        <a href="user.html" target="main">Users</a><br>
+        <a href="">Login Session</a><br>
+        <a href="">Logout</a>
+    </body>
+    
+    <script>
+        var current=localStorage.getItem('current_user');
+        document.getElementById("user").innerHTML="Hello, "+current;
+        </script>
+</html>
