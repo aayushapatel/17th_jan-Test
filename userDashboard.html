@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+
+        <title>
+            Dashboard
+        </title>
+    </head>
+    <body>
+        <h4>Dashboard</h4>
+        
+        <div id="birthday"></div>
+    </body>
+    <script>
+        var user=localStorage.getItem("current_user");
+        var allUsers=JSON.parse(localStorage.getItem("users"));
+        var date=new Date();
+        var month=date.getMonth();
+        var day=date.getDate();
+        for(var i=0;i<allUsers.length;i++)
+        {
+            if(allUsers[i].name==user)
+            {
+                var tempDate=allUsers[i].birthDate.split("-");
+                if(tempDate[1]==month && tempDate[2]==day)
+                {
+                    document.getElementById("birthday").innerHTML="Happy BirthDay";
+                }
+            }
+        }
+        </script>
+</html>

@@ -11,12 +11,17 @@
         <div id="user"></div>
         <a href="dashboard.html" target="main">Dashboard</a><br>
         <a href="user.html" target="main">Users</a><br>
-        <a href="">Login Session</a><br>
-        <a href="">Logout</a>
+        <a href="userSession.html" target="main">Login Session</a><br>
+        <a href="login.html" target="_top" onclick="javascript:logout();">Logout</a>
     </body>
     
     <script>
         var current=localStorage.getItem('current_user');
         document.getElementById("user").innerHTML="Hello, "+current;
+        function logout()
+        {
+            localStorage.removeItem("current_user");
+        }
+            
         </script>
 </html>

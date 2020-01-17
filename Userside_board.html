@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>
+            Side Board
+        </title>
+
+    </head>
+    <body>
+        <div id="user"></div>
+        <a href="userDashboard.html" target="main1">Dashboard</a><br>
+        <a href="login.html" target="_top" onclick="javascript:logout();">Logout</a>
+    </body>
+    
+    <script>
+        var current=localStorage.getItem('current_user');
+        document.getElementById("user").innerHTML="Hello, "+current;
+        function logout()
+        {
+            var updateUser=new Array();
+            var allUsers=JSON.parse(localStorage.getItem("users"));
+            for(i=0;i<allUsers.length;i++)
+            {
+
+                if(allUsers[i].name==this.current)
+                {
+                    allUsers[i].logoutTime=new Date();
+                    alert(allUsers[i].logoutTime);
+                    updateUser.push(allUsers[i]);  
+                }
+                else
+                {
+                    updateUser.push(allUsers[i]);
+                }
+            }
+            localStorage.setItem("users",JSON.stringify(allUsers));
+            localStorage.removeItem("current_user");
+        }
+            
+        </script>
+</html>

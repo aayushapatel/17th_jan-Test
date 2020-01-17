@@ -12,7 +12,6 @@ function login_check()
     var email=document.getElementById('email').value;
     var password=document.getElementById('password').value;
     var admin=JSON.parse(localStorage.getItem("admin"));
-    console.log(admin);
     if(admin.email==email)
     {
 
@@ -28,25 +27,43 @@ function login_check()
 
     }
     else{
-    var user=JSON.parse(localStorage.getItem("users"));
-    if(user!==null)
+    var users=JSON.parse(localStorage.getItem("users"));
+    var allUsers=new Array();
+    var cnt=0;
+    if(users!==null)
     {
-    for(var i=0;i<user.length;i++)
+    for(var i=0;i<users.length;i++)
     {
-        if(email===user[i].email)
+        
+        if(email===users[i].email)
         {
             
-            if(password===user[i].password)
+            if(password===users[i].password)
             {
                 alert("Login Successfull");
-                localStorage.setItem("current_user",user[i].name);
-                window.location.href="userDashboard.html";
+
+                localStorage.setItem("current_user",users[i].name);
+                cnt=1;
+                users[i].loginTime=new Date();
+                allUsers.push(users[i]);
+                
             }
             else{
                 alert("Invalid Password");
+                allUsers.push(users[i]);
                 break;
             }
         }
+        else
+        {
+        
+            allUsers.push(users[i]);
+        }
+    }
+    if(cnt==1)
+    {
+        localStorage.setItem("users",JSON.stringify(allUsers));
+        window.location.href="frameUser.html";
     }
 }
 else

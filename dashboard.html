@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
+
         <title>
             Dashboard
         </title>
@@ -8,5 +10,38 @@
     <body>
         <h4>Dashboard</h4>
         <div id="eighteen"></div>
+        <div id="fifty"></div>
+        <div id="moreFifty"></div>
+        <div id="birthday"></div>
     </body>
+    <script>
+        var allusers=JSON.parse(localStorage.getItem("users"));
+        var eighteen=0,fifty=0,moreFifty=0;
+        if(allusers!==null){
+            var date=new Date();
+            var month=date.getMonth()+1;
+            var day=date.getDate();
+            var birthday="";
+        for(var i=0;i<allusers.length;i++)
+        {
+            var tempDate = allusers[i].birthDate.split("-");
+        
+            if(tempDate[1]==month && tempDate[2]==day)
+            {
+                birthday+="Today is '"+allusers[i].name+"' Birthday<br>";
+
+            }
+            if(allusers[i].age<18)
+                eighteen++;
+            else if(allusers[i].age<50)
+                fifty++;
+            else
+            moreFifty++;
+        }
+    }
+        document.getElementById('eighteen').innerHTML="User < 18 Years<br>"+eighteen+" Users";
+        document.getElementById('fifty').innerHTML="18-50 Years Users <br>"+fifty+" Users";
+        document.getElementById('moreFifty').innerHTML="Users > 50 Years<br>"+moreFifty+" Users";
+        document.getElementById('birthday').innerHTML=birthday;
+        </script>
 </html>

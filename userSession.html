@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            User Session Page
+        </title>
+    </head>
+    <body>
+        <div id="sessionTable"></div>
+    </body>
+    <script>
+        var table="<table><tr><td>Name</td><td>Login Date Time </td><td>Logout Date Time</td></tr>";
+            var allUser=JSON.parse(localStorage.getItem("users"));
+            for(i=0;i<allUser.length;i++)
+            {
+                table+="<tr><td>"+allUser[i].name+"</td><td>"+allUser[i].loginTime+"</td><td>"+allUser[i].logoutTime+"</td></tr>";
+            }
+            table+="</table>";
+            document.getElementById("sessionTable").innerHTML=table;
+    </script>
+</html>
